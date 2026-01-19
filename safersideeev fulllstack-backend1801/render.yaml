@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: myApp
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/myApp.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+    healthCheckPath: /
+    plan: free
